@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/fox-one/mixin-sdk/mixin"
+	"github.com/lanvige/mixin-sdk/mixin"
 )
 
 // User messenger user entity

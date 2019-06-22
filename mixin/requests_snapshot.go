@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/fox-one/mixin-sdk/utils"
+	"github.com/lanvige/mixin-sdk/utils"
 )
 
 // ReadNetwork read network snapshots

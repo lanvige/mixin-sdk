@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/fox-one/mixin-sdk/utils"
+	"github.com/lanvige/mixin-sdk/utils"
 	log "github.com/sirupsen/logrus"
 )
 

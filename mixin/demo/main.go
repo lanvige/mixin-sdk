@@ -6,7 +6,7 @@ import (
 	"encoding/pem"
 	"log"
 
-	"github.com/fox-one/mixin-sdk/mixin"
+	"github.com/lanvige/mixin-sdk/mixin"
 	jsoniter "github.com/json-iterator/go"
 )
 

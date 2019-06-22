@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/fox-one/mixin-sdk/utils"
+	"github.com/lanvige/mixin-sdk/utils"
 	uuid "github.com/satori/go.uuid"
 	"github.com/shopspring/decimal"
 	log "github.com/sirupsen/logrus"

@@ -1,6 +1,6 @@
 package messenger
 
-import "github.com/fox-one/mixin-sdk/mixin"
+import "github.com/lanvige/mixin-sdk/mixin"
 
 func requestError(err error) *mixin.Error {
 	return &mixin.Error{

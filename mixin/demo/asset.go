@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/fox-one/mixin-sdk/mixin"
+	"github.com/lanvige/mixin-sdk/mixin"
 )
 
 func doAssetFee(ctx context.Context, user *mixin.User) {

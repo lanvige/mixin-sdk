@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/fox-one/mixin-sdk/mixin"
-	"github.com/fox-one/mixin-sdk/utils"
+	"github.com/lanvige/mixin-sdk/mixin"
+	"github.com/lanvige/mixin-sdk/utils"
 )
 
 // Attachment attachment
