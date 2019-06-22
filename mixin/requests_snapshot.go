@@ -66,6 +66,44 @@ func (user User) ReadNetworkSnapshot(ctx context.Context, snapshotID string) (*S
 	return resp.Snapshot, nil
 }
 
+// ReadSnapshots read network snapshots
+func (user User) ReadSnapshots(ctx context.Context, assetID string, offset time.Time, order bool, limit uint) ([]*Snapshot, error) {
+	uri := fmt.Sprintf("/snapshots?limit=%d", limit)
+	if !offset.IsZero() {
+		uri = uri + "&offset=" + offset.UTC().Format(time.RFC3339Nano)
+	}
+	if len(assetID) > 0 {
+		uri = uri + "&asset=" + assetID
+	}
+	if order {
+		uri = uri + "&order=ASC"
+	} else {
+		uri = uri + "&order=DESC"
+	}
+	data, err := user.Request(ctx, "GET", uri, nil)
+	if err != nil {
+		return nil, requestError(err)
+	}
+
+	var resp struct {
+		Snapshots []*Snapshot `json:"data,omitempty"`
+		Error     *Error      `json:"error,omitempty"`
+	}
+	if err = json.Unmarshal(data, &resp); err != nil {
+		return nil, requestError(err)
+	} else if resp.Error != nil {
+		return nil, resp.Error
+	}
+
+	for _, snapshot := range resp.Snapshots {
+		if snapshot.Asset != nil {
+			snapshot.AssetID = snapshot.Asset.AssetID
+		}
+	}
+
+	return resp.Snapshots, nil
+}
+
 // ReadSnapshot read snapshot with snapshot id
 func (user User) ReadSnapshot(ctx context.Context, snapshotID string) (*Snapshot, error) {
 	data, err := user.Request(ctx, "GET", "/snapshots/"+snapshotID, nil)
