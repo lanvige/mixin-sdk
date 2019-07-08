@@ -24,7 +24,9 @@ type User struct {
 	PINToken   string `json:"pin_token"`
 	SessionKey string `json:"session_key"`
 
-	FullName string `json:"full_name"`
+	FullName   string `json:"full_name"`
+	HasPin     bool   `json:"has_pin"`
+	IsVerified bool   `json:"is_verified"`
 
 	pinCipher  *cipher.Block
 	privateKey *rsa.PrivateKey
